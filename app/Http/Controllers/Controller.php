@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Aset;
 use App\Models\Branch;
 use App\Models\Jenisaset;
+use Illuminate\Support\Facades\DB;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
@@ -91,5 +92,26 @@ class Controller extends BaseController
         if ($bulan == "12") {
             return "Desember";
         }
+    }
+
+    public function halamanIndex()
+    {
+        // mengambil data dari table pegawai
+        $aset = DB::table('tbl_aset')->get();
+
+        //return view('template', ['aset' => $aset]);
+        // mengirim data pegawai ke view index
+        return view('index', ['aset' => $aset]);
+    }
+
+    public function halamanTambah()
+    {
+        // mengambil data dari table pegawai
+        $aset = DB::table('tbl_jenis_aset')->get();
+        $branch = DB::table('tbl_branch')->get();
+
+        //return view('template', ['aset' => $aset]);
+        // mengirim data pegawai ke view index
+        return view('asets/tambah', ['aset' => $aset], ['branch' => $branch]);
     }
 }

@@ -72,8 +72,8 @@ class AsetController extends Controller
 
         $kode_jenis = $this->generateKodeJenisAset($request->id_jenis);
         $kode_branch = $this->generateKodeBranch($request->id_branch);
-        $bulan = '06';
-        $tahun = '21';
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
         $code_query = $kode_jenis . $kode_branch . $bulan . $tahun;
         $query_number = $this->getQueryNumber($code_query);
         $kode_unik = $code_query . $query_number;
@@ -81,11 +81,12 @@ class AsetController extends Controller
         if ($Aset) {
             $this->addKodeUnik($Aset['id'], $kode_unik);
             $this->addUrlQrCode($Aset['id'], $kode_jenis, $kode_branch, $bulan, $tahun, $query_number);
-            return response()->json([
-                'success' => true,
-                'message' => 'Aset Created',
-                'data'    => $Aset
-            ], 201);
+            // return response()->json([
+            //     'success' => true,
+            //     'message' => 'Aset Created',
+            //     'data'    => $Aset
+            // ], 201);
+            return redirect('/');
         }
 
         //failed save to database
@@ -106,7 +107,7 @@ class AsetController extends Controller
     private function addUrlQrCode($id, $jenis, $branch, $bulan, $tahun, $query)
     {
         //$uri = `fullstack_test/triadiqr/{$jenis}/{$branch}/{$bulan}/{$tahun}/{$query}`;
-        $URL_QR_CODE = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . env('APP_URL') . "/fullstack_test/triadiqr/" . $jenis . "/" . $branch . "/" . $bulan . "/" . $tahun . "/" . $query;
+        $URL_QR_CODE = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . env('APP_URL') . "/fullstack_test/triadiqr/" . $jenis . "/" . $branch . "/" . $bulan . "/" . $tahun . "/" . $query;
 
         $Aset = Aset::findOrFail($id);
         $Aset->update([

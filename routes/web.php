@@ -13,9 +13,9 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+
+$router->get('/', 'Controller@halamanIndex');
+$router->get('/aset/tambah', 'Controller@halamanTambah');
 
 $router->group(['prefix' => 'v1/aset'], function () use ($router) {
     $router->get('/', 'AsetController@index');

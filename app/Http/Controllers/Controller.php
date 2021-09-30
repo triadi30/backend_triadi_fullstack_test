@@ -93,25 +93,25 @@ class Controller extends BaseController
             return "Desember";
         }
     }
-
     public function halamanIndex()
     {
-        // mengambil data dari table pegawai
+        // mengambil data dari table aset
         $aset = DB::table('tbl_aset')->get();
-
         //return view('template', ['aset' => $aset]);
-        // mengirim data pegawai ke view index
+        // mengirim data aset ke view index
         return view('index', ['aset' => $aset]);
     }
 
+
+
     public function halamanTambah()
     {
-        // mengambil data dari table pegawai
+        // mengambil data dari table aset
         $aset = DB::table('tbl_jenis_aset')->get();
         $branch = DB::table('tbl_branch')->get();
 
         //return view('template', ['aset' => $aset]);
-        // mengirim data pegawai ke view index
+        // mengirim data aset ke view index
         return view('asets/tambah', ['aset' => $aset], ['branch' => $branch]);
     }
 }

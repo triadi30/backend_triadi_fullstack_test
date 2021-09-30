@@ -86,7 +86,6 @@ class AsetController extends Controller
             //     'message' => 'Aset Created',
             //     'data'    => $Aset
             // ], 201);
-            //Alert::success('Alhamdulillah', 'Data Aset berhasil ditambahkan');
             return redirect('/');
         }
 

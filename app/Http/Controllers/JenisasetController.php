@@ -73,11 +73,12 @@ class JenisasetController extends Controller
         //success save to database
         if ($Jenisaset) {
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Jenisaset Created',
-                'data'    => $Jenisaset
-            ], 201);
+            // return response()->json([
+            //     'success' => true,
+            //     'message' => 'Jenisaset Created',
+            //     'data'    => $Jenisaset
+            // ], 201);
+            return redirect('/');
         }
 
         //failed save to database

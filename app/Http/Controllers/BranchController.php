@@ -73,11 +73,12 @@ class BranchController extends Controller
         //success save to database
         if ($Branch) {
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Branch Created',
-                'data'    => $Branch
-            ], 201);
+            // return response()->json([
+            //     'success' => true,
+            //     'message' => 'Branch Created',
+            //     'data'    => $Branch
+            // ], 201);
+            return redirect('/');
         }
 
         //failed save to database

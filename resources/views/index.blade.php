@@ -21,6 +21,11 @@
                 <h3>Data aset</h3>
 
                 <a href="/aset/tambah"> + Tambah aset Baru</a>
+                <br>
+                <a href="/aset/tambahbranch"> + Tambah branch Baru</a>
+                <br>
+                <a href="/aset/tambahjenis"> + Tambah jenis aset Baru</a>
+
 
                 <br />
                 <br />

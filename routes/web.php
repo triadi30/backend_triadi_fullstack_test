@@ -16,6 +16,8 @@
 
 $router->get('/', 'Controller@halamanIndex');
 $router->get('/aset/tambah', 'Controller@halamanTambah');
+$router->get('/aset/tambahbranch', 'Controller@halamanTambahbranch');
+$router->get('/aset/tambahjenis', 'Controller@halamanTambahjenis');
 
 $router->group(['prefix' => 'v1/aset'], function () use ($router) {
     $router->get('/', 'AsetController@index');

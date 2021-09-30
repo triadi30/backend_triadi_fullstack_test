@@ -54,7 +54,8 @@ class Controller extends BaseController
         $nama_tahun = "20" . $tahun;
 
         $hasil = $nama_jenis . " area " . $nama_branch . " pembelian bulan " . $bulan . " tahun " . $nama_tahun . " ke " . $query;
-        return $hasil;
+        //return $hasil;
+        return view('asets/scanQR', ['hasil' => $hasil]);
     }
 
     private function generateNamaBulan($bulan)
@@ -113,5 +114,15 @@ class Controller extends BaseController
         //return view('template', ['aset' => $aset]);
         // mengirim data aset ke view index
         return view('asets/tambah', ['aset' => $aset], ['branch' => $branch]);
+    }
+
+    public function halamanTambahbranch()
+    {
+        return view('asets/tambahbranch');
+    }
+
+    public function halamanTambahjenis()
+    {
+        return view('asets/tambahjenis');
     }
 }

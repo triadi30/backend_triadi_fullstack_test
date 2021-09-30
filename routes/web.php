@@ -13,7 +13,6 @@
 |
 */
 
-
 $router->get('/', 'Controller@halamanIndex');
 $router->get('/aset/tambah', 'Controller@halamanTambah');
 
